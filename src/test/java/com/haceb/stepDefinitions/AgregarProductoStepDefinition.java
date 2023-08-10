@@ -1,7 +1,7 @@
 package com.haceb.stepDefinitions;
 
-import com.haceb.steps.BusquedaCategoriaSteps;
-import com.haceb.steps.ListaSubCategoriasSteps;
+import com.haceb.steps.AgregarCarrito.BusquedaCategoriaSteps;
+import com.haceb.steps.AgregarCarrito.ListaSubCategoriasSteps;
 
 import io.cucumber.java.es.*;
 import io.cucumber.java.es.Entonces;

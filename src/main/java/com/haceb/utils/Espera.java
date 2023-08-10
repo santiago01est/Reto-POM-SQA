@@ -16,4 +16,22 @@ public class Espera {
         //WebElement elementoVisible = wait.until(ExpectedConditions.visibilityOf(elementoPadre));
 
     }
+
+    static public void esperarIngresarTexto(WebDriver driver, By elemento, String texto) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(elemento));
+
+        driver.findElement(elemento)
+                .sendKeys(texto);
+        
+        //WebElement elementoVisible = wait.until(ExpectedConditions.visibilityOf(elementoPadre));
+
+    }
+
+    static public void esperarSegundos(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("x")));
+    }
+
 }
