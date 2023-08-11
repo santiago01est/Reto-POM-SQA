@@ -1,40 +1,37 @@
 package com.haceb.stepDefinitions;
 
-import com.haceb.steps.AgregarCarrito.BusquedaCategoriaSteps;
-import com.haceb.steps.AgregarCarrito.ListaSubCategoriasSteps;
+
 
 import io.cucumber.java.es.*;
-import io.cucumber.java.es.Entonces;
 import net.thucydides.core.annotations.Steps;
 
 public class AgregarProductoStepDefinition {
 
-    @Steps
-    BusquedaCategoriaSteps busquedaCategoriaSteps;
-    @Steps
-    ListaSubCategoriasSteps listaSubCategoriasSteps;
+    
 
     @Dado("que el usuario abre la pagina del haceb")
     public void queElUsuarioAbreLaPaginaDelHaceb() {
-        busquedaCategoriaSteps.abrirNavegador();
+        //busquedaCategoriaSteps.abrirNavegador();
     }
 
     @Cuando("el usuario selecciona una categoria")
     public void elUsuarioSeleccionaUnaCategoria() {
-        busquedaCategoriaSteps.clicSeleccionarCategoria();
+        //busquedaCategoriaSteps.clicSeleccionarCategoria();
     }
 
     @Cuando("selecciona una subcategoria de forma aleatoria")
     public void seleccionaUnaSubcategoriaDeFormaAleatoria() {
-        listaSubCategoriasSteps.seleccionaUnaSubcategoriaDeFormaAleatoria();
+        //listaSubCategoriasSteps.seleccionaUnaSubcategoriaDeFormaAleatoria();
     }
 
     @Cuando("da click a un producto de forma aleatoria")
     public void daClickAUnProductoDeFormaAleatoria() {
+        //listaProductoSteps.seleccionarProductoAleatorio();
     }
 
     @Cuando("agrega el producto al carrito")
     public void agregaElProductoAlCarrito() {
+        //detalleProductoSteps.clicAgregarProducto();
     }
 
     @Cuando("agrega el producto")

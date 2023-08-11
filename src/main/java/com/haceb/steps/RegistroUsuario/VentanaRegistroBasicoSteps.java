@@ -1,6 +1,8 @@
 package com.haceb.steps.RegistroUsuario;
 
 import org.fluentlenium.core.annotation.Page;
+import org.openqa.selenium.WebDriver;
+
 import com.haceb.pageObject.RegistroUsuario.VentanaRegistroBasico;
 import com.haceb.utils.Espera;
 
@@ -13,18 +15,23 @@ public class VentanaRegistroBasicoSteps {
 
     @Step("Completar formulario de registro info basica")
     public void completarFormularioDeRegistroInfoBasica() {
+        WebDriver driver = ventanaRegistroBasico.getDriver();
         // espera hasta que aparezca el boton ingresar a Haceb
-        Espera.esperarIngresarTexto(ventanaRegistroBasico.getDriver(), ventanaRegistroBasico.getTxtEmail(), "santiago01est@gmail.com");
-        ventanaRegistroBasico.getDriver().findElement(ventanaRegistroBasico.getTxtNombre())
+        Espera.esperarIngresarTexto(driver, ventanaRegistroBasico.getTxtEmail(), "santiago01est@gmail.com");
+        driver.findElement(ventanaRegistroBasico.getTxtNombre())
         .sendKeys("Sebastián");
-        ventanaRegistroBasico.getDriver().findElement(ventanaRegistroBasico.getTxtApellido())
+        driver.findElement(ventanaRegistroBasico.getTxtApellido())
         .sendKeys("Garcia");
 
         
-        ventanaRegistroBasico.getDriver().findElement(ventanaRegistroBasico.getTxContrasena())
+        driver.findElement(ventanaRegistroBasico.getTxContrasena())
         .sendKeys("ABc123456");
-        Espera.esperarSegundos(ventanaRegistroBasico.getDriver());
-        ventanaRegistroBasico.getDriver().findElement(ventanaRegistroBasico.getTxtConfirmarContrasena())
+        Espera.esperarSegundos(driver);
+        driver.findElement(ventanaRegistroBasico.getTxtConfirmarContrasena())
         .sendKeys("ABc123456");
+
+        ventanaRegistroBasico.getTextTerminos().click();
+        
+
     }
 }

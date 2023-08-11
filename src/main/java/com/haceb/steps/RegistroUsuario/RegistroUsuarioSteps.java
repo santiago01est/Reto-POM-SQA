@@ -28,11 +28,10 @@ public class RegistroUsuarioSteps {
         Espera.esperaClicBoton(ventanaDialogoPage.getDriver(), ventanaDialogoPage.getBtnCerrar());
 
         //Hover perfil
-        WebElement elemento = homePage.getDriver().findElement(homePage.getBtnPerfil());
-
         Actions actions = new Actions(homePage.getDriver());
-        actions.moveToElement(elemento).build().perform();
-        //homePage.getBtnPerfil();
+        actions.moveToElement(homePage.btnPerfil).build().perform();
+
+        //Espera para la opcion registrarse
         Espera.esperaClicBoton(homePage.getDriver(), homePage.getBtnRegistro());
     }
 

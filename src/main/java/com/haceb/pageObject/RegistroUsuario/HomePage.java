@@ -3,20 +3,26 @@ package com.haceb.pageObject.RegistroUsuario;
 import org.openqa.selenium.By;
 
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 
 public class HomePage extends PageObject {
-    private By btnPerfil= By.xpath("//div[contains(@class, 'link-account-user')]");
-    private By btnRegistro = By.xpath("//a[contains(@class, 'cdc-register')]");
-    private By btnIngresarHaceb= By.id("vtexIdUI-custom-oauth");
+    @FindBy(xpath = "//div[contains(@class, 'link-account-user')]")
+    public WebElementFacade btnPerfil;
+    @FindBy(xpath = "//a[contains(@class, 'cdc-register')]")
+    public WebElementFacade btnRegistro;
+    @FindBy(id = "vtexIdUI-custom-oauth")
+    public WebElementFacade btnIngresarHaceb;
 
-    public By getBtnPerfil() {
+
+    public WebElementFacade getBtnPerfil() {
         return btnPerfil;
     }
 
-    public By getBtnRegistro() {
+    public WebElementFacade getBtnRegistro() {
         return btnRegistro;
     }
-    public By getBtnIngresarHaceb() {
+    public WebElementFacade getBtnIngresarHaceb() {
         return btnIngresarHaceb;
     }
 }
