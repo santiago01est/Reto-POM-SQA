@@ -16,7 +16,7 @@ public class DetalleProductoSteps {
     @Step("Clic agregar producto")
     public void clicAgregarProducto() {
         Espera.esperaElementoVisible(detalleProductoPage.getDriver(), detalleProductoPage.getLabelNombreProducto());
-        CapturarInformacion.guardarNombre(detalleProductoPage.getLabelNombreProducto().getText());
+        CapturarInformacion.guardarNombre(detalleProductoPage.getLabelNombreProducto().getText().toString());
         detalleProductoPage.getBtnAgregarCarrito().click();
 
     }

@@ -6,6 +6,6 @@ public class CapturarInformacion {
 
         Excel.escrituraExcel(
                 "src/test/resources/data/Data.xlsx",
-                nombreProducto,2,0);
+                nombreProducto,1,0);
     }
 }

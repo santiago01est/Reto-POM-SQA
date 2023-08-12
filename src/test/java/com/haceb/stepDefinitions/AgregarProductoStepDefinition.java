@@ -4,6 +4,7 @@ import com.haceb.steps.AgregarCarrito.BusquedaCategoriaSteps;
 import com.haceb.steps.AgregarCarrito.DetalleProductoSteps;
 import com.haceb.steps.AgregarCarrito.ListaProductoSteps;
 import com.haceb.steps.AgregarCarrito.ListaSubCategoriasSteps;
+import com.haceb.steps.AgregarCarrito.ValidacionCarritoStep;
 
 import io.cucumber.java.es.*;
 import net.thucydides.core.annotations.Steps;
@@ -18,6 +19,8 @@ public class AgregarProductoStepDefinition {
     ListaProductoSteps listaProductoSteps;
     @Steps
     DetalleProductoSteps detalleProductoSteps;
+    @Steps
+    ValidacionCarritoStep validacionCarritoPageSteps;
 
     @Dado("que el usuario abre la pagina del haceb")
     public void queElUsuarioAbreLaPaginaDelHaceb() {
@@ -51,6 +54,6 @@ public class AgregarProductoStepDefinition {
 
     @Entonces("el usuario podrá ver el nombre producto en el carrito.")
     public void elUsuarioPodráVerElNombreProductoEnElCarrito() {
-
+        validacionCarritoPageSteps.validarNombreCarrito();
     }
 }

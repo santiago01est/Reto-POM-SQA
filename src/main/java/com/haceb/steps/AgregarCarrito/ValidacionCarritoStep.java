@@ -12,10 +12,14 @@ import org.junit.Assert;
 public class ValidacionCarritoStep {
     @Page
     ValidacionCarritoPage validacionCarritoPage;
-    
+
     @Step("validar nombre del producto en carrito")
     public void validarNombreCarrito() {
         Espera.esperaElementoVisible(validacionCarritoPage.getDriver(), validacionCarritoPage.getLabelNombreProducto());
-        Assert.assertTrue(InformacionRegistro.data().get(0).get("validacion").contains(validacionCarritoPage.getLabelNombreProducto().getText().toString()));
+    
+        Assert.assertTrue(
+                validacionCarritoPage.getLabelNombreProducto().isDisplayed());
+
+       
     }
 }

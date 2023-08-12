@@ -16,7 +16,8 @@ public class ValidacionRegistroSteps {
     public void validarRegistroPerfil() {
         
         Espera.esperaElementoVisible(validacionRegistroPage.getDriver(), validacionRegistroPage.getLabelNombre());
-        
+        Assert.assertTrue(
+                validacionRegistroPage.getLabelNombre().isDisplayed());
         Assert.assertTrue(InformacionRegistro.data().get(0).get("nombre").contains(validacionRegistroPage.getLabelNombre().getText().toString()));
     }
 }

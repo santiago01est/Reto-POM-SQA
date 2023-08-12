@@ -8,7 +8,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class ValidacionCarritoPage extends PageObject {
 
-    @FindBy(how = How.ID, using = "product-name377")
+    @FindBy(how = How.XPATH, using = "//td[contains(@class, 'product-name')]")
     public WebElementFacade labelNombreProducto;
 
     public WebElementFacade getLabelNombreProducto() {
