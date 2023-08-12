@@ -23,5 +23,7 @@ public class SeleccionAleatoria {
         int indexRandom = random.nextInt(coleccion.size());
         return coleccion.get(indexRandom);
     }
+
+     
     
 }

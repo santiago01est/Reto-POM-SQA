@@ -1,10 +1,15 @@
 package com.haceb.steps.RegistroUsuario;
 
 import org.fluentlenium.core.annotation.Page;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.devtools.idealized.Javascript;
 
+import com.haceb.models.InformacionRegistro;
 import com.haceb.pageObject.RegistroUsuario.VentanaRegistroBasico;
+import com.haceb.utils.CapturarInformacion;
 import com.haceb.utils.Espera;
+import com.haceb.utils.js.MetodosJS;
 
 import net.thucydides.core.annotations.Step;
 
@@ -17,21 +22,23 @@ public class VentanaRegistroBasicoSteps {
     public void completarFormularioDeRegistroInfoBasica() {
         WebDriver driver = ventanaRegistroBasico.getDriver();
         // espera hasta que aparezca el boton ingresar a Haceb
-        Espera.esperarIngresarTexto(driver, ventanaRegistroBasico.getTxtEmail(), "santiago01est@gmail.com");
-        driver.findElement(ventanaRegistroBasico.getTxtNombre())
-        .sendKeys("Sebastián");
-        driver.findElement(ventanaRegistroBasico.getTxtApellido())
-        .sendKeys("Garcia");
-
+        Espera.esperarIngresarTexto(driver, ventanaRegistroBasico.getTxtEmail(), InformacionRegistro.data().get(0).get("correo"));
+        ventanaRegistroBasico.getTxtNombre().sendKeys(InformacionRegistro.data().get(0).get("nombre"));
+        //Guardar nombre
+        //CapturarInformacion.guardarNombre("Santiago");
+        ventanaRegistroBasico.getTxtApellido().sendKeys(InformacionRegistro.data().get(0).get("apelido"));
         
-        driver.findElement(ventanaRegistroBasico.getTxContrasena())
-        .sendKeys("ABc123456");
+        ventanaRegistroBasico.getTxContrasena().sendKeys(InformacionRegistro.data().get(0).get("pass"));
         Espera.esperarSegundos(driver);
-        driver.findElement(ventanaRegistroBasico.getTxtConfirmarContrasena())
-        .sendKeys("ABc123456");
+        ventanaRegistroBasico.getTxtConfirmarContrasena().sendKeys(InformacionRegistro.data().get(0).get("pass"));
 
-        ventanaRegistroBasico.getTextTerminos().click();
-        
+        Espera.esperarSegundos(driver);
+        //CheckBox
+        MetodosJS.clickJS(driver, ventanaRegistroBasico.getBtnTerminos());
+        //RadioButton
+        MetodosJS.clickJS(driver, ventanaRegistroBasico.getBtnAutorizar());
+        //Boton registrar
+        Espera.esperaClicBoton(driver, ventanaRegistroBasico.getBtnRegistrar());
 
     }
 }

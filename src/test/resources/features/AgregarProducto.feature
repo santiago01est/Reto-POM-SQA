@@ -10,5 +10,5 @@
       Y selecciona una subcategoria de forma aleatoria
       Y da click a un producto de forma aleatoria
       Y agrega el producto al carrito
-      Cuando agrega el producto
+      Cuando va al carrito
       Entonces el usuario podrá ver el nombre producto en el carrito.

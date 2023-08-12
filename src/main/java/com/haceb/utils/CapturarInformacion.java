@@ -5,7 +5,7 @@ public class CapturarInformacion {
     public static void guardarNombre(String nombreProducto) {
 
         Excel.escrituraExcel(
-                "src/main/resources/Data/Data.xlsx",
-                nombreProducto,0,0);
+                "src/test/resources/data/Data.xlsx",
+                nombreProducto,2,0);
     }
 }

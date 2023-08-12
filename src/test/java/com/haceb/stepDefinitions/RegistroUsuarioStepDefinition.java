@@ -1,6 +1,8 @@
 package com.haceb.stepDefinitions;
 
 import com.haceb.steps.RegistroUsuario.RegistroUsuarioSteps;
+import com.haceb.steps.RegistroUsuario.ValidacionRegistroSteps;
+import com.haceb.steps.RegistroUsuario.VentanaRegistroAdicionalSteps;
 import com.haceb.steps.RegistroUsuario.VentanaRegistroBasicoSteps;
 
 import io.cucumber.java.es.*;
@@ -12,6 +14,10 @@ public class RegistroUsuarioStepDefinition {
     RegistroUsuarioSteps registroUsuarioSteps;
     @Steps
     VentanaRegistroBasicoSteps ventanaRegistroBasicoSteps;
+    @Steps
+    VentanaRegistroAdicionalSteps ventanaRegistroAdicionalSteps;
+    @Steps
+    ValidacionRegistroSteps validacionRegistroSteps;
 
     @Dado("que el usuario abre la pagina de haceb")
     public void queElUsuarioAbreLaPaginaDeHaceb() {
@@ -28,28 +34,24 @@ public class RegistroUsuarioStepDefinition {
         registroUsuarioSteps.clicIngresarHacebRegistro();
     }
 
-    @Cuando("completa el formulario de registro datos basicos")
-    public void completaElFormularioDeRegistroDatosBasicos() {
+    @Cuando("completa el formulario de registro datos basicos y se registra")
+    public void completaElFormularioDeRegistroDatosBasicosYSeRegistra() {
         ventanaRegistroBasicoSteps.completarFormularioDeRegistroInfoBasica();
     }
 
-    @Cuando("da click en registrarme")
-    public void daClickEnRegistrarme() {
-
-    }
 
     @Cuando("completa el formulario datos adicionales")
     public void completaElFormularioDatosAdicionales() {
-
+        ventanaRegistroAdicionalSteps.completarFormularioDeRegistroInfoAdicional();
     }
 
     @Cuando("da click en completar registro")
     public void daClickEnCompletarRegistro() {
-
+        ventanaRegistroAdicionalSteps.clicRegistrarUsuario();
     }
 
     @Entonces("el usuario podrá ver un mensaje de bienvenida.")
     public void elUsuarioPodráVerUnMensajeDeBienvenida() {
-
+        validacionRegistroSteps.validarRegistroPerfil();
     }
 }

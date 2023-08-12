@@ -64,7 +64,7 @@ public class Excel {
             return;
         }
 
-        Sheet sheet = workbook.getSheetAt(0);
+        Sheet sheet = workbook.getSheetAt(1);
         Row row = sheet.getRow(fila);
         if (row == null) {
             row = sheet.createRow(fila);

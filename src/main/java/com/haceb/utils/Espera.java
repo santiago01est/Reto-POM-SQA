@@ -13,27 +13,35 @@ import net.serenitybdd.core.pages.WebElementFacade;
 public class Espera {
     public static void esperaClicBoton(WebDriver driver, WebElementFacade elemento) {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
         wait.until(ExpectedConditions.visibilityOf(elemento));
         elemento.click();
 
     }
 
-    public static void esperarIngresarTexto(WebDriver driver, By elemento, String texto) {
+    public static void esperaElementoVisible(WebDriver driver, WebElementFacade elemento) {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+        wait.until(ExpectedConditions.visibilityOf(elemento));
+
+    }
+
+    public static void esperarIngresarTexto(WebDriver driver, WebElementFacade elemento, String texto) {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        wait.until(ExpectedConditions.visibilityOfElementLocated(elemento));
+        wait.until(ExpectedConditions.visibilityOf(elemento));
 
-        driver.findElement(elemento)
-                .sendKeys(texto);
+        elemento.sendKeys(texto);
 
         // WebElement elementoVisible =
         // wait.until(ExpectedConditions.visibilityOf(elementoPadre));
 
     }
 
+    
+
     public static void esperarSegundos(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("x")));
     }
 
